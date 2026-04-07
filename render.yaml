@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: dance-class-api
+    env: python
+    buildCommand: |
+      export CARGO_HOME=/tmp/cargo
+      pip install -r requirements.txt
