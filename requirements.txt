@@ -96,7 +96,7 @@ pandas==2.2.3
 parso==0.8.5
 pdbpp==0.10.3
 pexpect==4.9.0
-Pillow==9.4.0
+Pillow==11.1.0
 platformdirs==4.5.1
 prompt_toolkit==3.0.52
 propcache==0.4.1
