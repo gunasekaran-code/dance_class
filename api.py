@@ -60,7 +60,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS
+
+# ✅ PROPER CORS CONFIGURATION
+CORS(app, resources={
+    r"/send-whatsapp": {
+        "origins": ["http://127.0.0.1:5500", "http://localhost:5500", "https://dance-class-api.onrender.com"],
+        "methods": ["POST", "OPTIONS"],
+        "allow_headers": ["Content-Type"]
+    }
+})
 
 ACCOUNT_SID = os.getenv('ACCOUNT_SID')
 AUTH_TOKEN = os.getenv('AUTH_TOKEN')
@@ -69,8 +77,12 @@ MY_NUMBER = os.getenv('MY_NUMBER')
 
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
 
-@app.route('/send-whatsapp', methods=['POST'])
+@app.route('/send-whatsapp', methods=['POST', 'OPTIONS'])
 def send_whatsapp():
+    # Handle preflight OPTIONS request
+    if request.method == 'OPTIONS':
+        return '', 204
+    
     try:
         data = request.get_json()
         content = (
@@ -90,7 +102,7 @@ def send_whatsapp():
         return jsonify({"status": "success", "sid": message.sid})
     
     except Exception as e:
-        return jsonify({"status": "error", "message": str(e)})
+        return jsonify({"status": "error", "message": str(e)}), 400
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
