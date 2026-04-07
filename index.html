@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sri Vani Kalai Mandram – Bharatanatyam Dance Academy</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --maroon: #6B0E23;
+      --maroon-deep: #4A0819;
+      --maroon-light: #8C1A33;
+      --maroon-pale: #f5e6ea;
+      --gold: #C9A84C;
+      --gold-light: #e8d5a0;
+      --white: #FDFAF7;
+      --off-white: #F7F0ED;
+      --cream: #EDE3DC;
+      --text-dark: #1a0a0d;
+      --text-mid: #4a2030;
+      --text-light: #9a7070;
+      --font-display: 'Cinzel', serif;
+      --font-body: 'Cormorant Garamond', serif;
+      --font-accent: 'EB Garamond', serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--cream);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--maroon);
+      border-radius: 3px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0 5%;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.5s, box-shadow 0.5s;
+    }
+
+    nav.scrolled {
+      background: rgba(253, 250, 247, 0.97);
+      box-shadow: 0 1px 20px rgba(107, 14, 35, 0.10);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.4s;
+    }
+
+    nav.scrolled .nav-logo {
+      color: var(--maroon-deep);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.88);
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    nav.scrolled .nav-links a {
+      color: var(--maroon);
+    }
+
+    nav.scrolled .nav-links a:hover {
+      color: var(--maroon-deep);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+      display: block;
+    }
+
+    nav.scrolled .hamburger span {
+      background: var(--maroon);
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--maroon-deep);
+      z-index: 999;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--white);
+    }
+
+    /* ── HERO ── */
+    #home {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+    }
+
+    .hero-slides {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.6s ease;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    /* Unsplash Bharatanatyam-style images */
+    .hero-slide:nth-child(1) {
+      background-image: url('https://images.unsplash.com/photo-1547153760-18fc86324498?w=1600&q=80');
+    }
+
+    .hero-slide:nth-child(2) {
+      background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?w=1600&q=80');
+    }
+
+    .hero-slide:nth-child(3) {
+      background-image: url('https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=1600&q=80');
+    }
+
+    .hero-slide:nth-child(4) {
+      background-image: url('https://images.unsplash.com/photo-1529651737248-dad5e287768e?w=1600&q=80');
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+          rgba(74, 8, 25, 0.72) 0%,
+          rgba(26, 10, 13, 0.55) 50%,
+          rgba(74, 8, 25, 0.40) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+    }
+
+    .hero-ornament {
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeUp 1s 0.3s forwards;
+      letter-spacing: 0.4em;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 6vw, 5.2rem);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      line-height: 1.1;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 1s 0.6s forwards;
+      text-shadow: 0 2px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-title span {
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-family: var(--font-accent);
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-style: italic;
+      color: var(--gold-light);
+      margin-top: 1rem;
+      letter-spacing: 0.06em;
+      opacity: 0;
+      animation: fadeUp 1s 0.9s forwards;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1.8rem auto;
+      opacity: 0;
+      animation: fadeUp 1s 1.1s forwards;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--white);
+      border: 1px solid var(--gold);
+      padding: 14px 40px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeUp 1s 1.3s forwards;
+      transition: color 0.35s;
+    }
+
+    .hero-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+      z-index: -1;
+    }
+
+    .hero-cta:hover::before {
+      transform: scaleX(1);
+    }
+
+    .hero-cta:hover {
+      color: var(--maroon-deep);
+    }
+
+    .hero-dots {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 3;
+    }
+
+    .hero-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid var(--gold);
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .hero-dot.active {
+      background: var(--gold);
+      transform: scale(1.3);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 28px;
+      right: 5%;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      animation: fadeIn 1s 2s forwards;
+    }
+
+    .scroll-hint span {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: rgba(255, 255, 255, 0.55);
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s infinite;
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 7rem 5%;
+    }
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-label::before,
+    .section-label::after {
+      content: '';
+      flex: 0 0 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--maroon-deep);
+      text-transform: uppercase;
+      line-height: 1.15;
+    }
+
+    .section-title em {
+      font-style: italic;
+      font-family: var(--font-accent);
+      color: var(--maroon-light);
+      text-transform: none;
+      font-size: 1.1em;
+    }
+
+    .gold-rule {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.4rem 0;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--off-white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6%;
+      align-items: center;
+    }
+
+    .about-image-wrap {
+      position: relative;
+      aspect-ratio: 4/5;
+      overflow: hidden;
+    }
+
+    .about-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: sepia(12%) contrast(1.04);
+      transition: transform 0.8s ease;
+    }
+
+    .about-image-wrap:hover img {
+      transform: scale(1.04);
+    }
+
+    .about-frame {
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(201, 168, 76, 0.45);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .about-accent {
+      position: absolute;
+      bottom: -18px;
+      right: -18px;
+      width: 120px;
+      height: 120px;
+      background: var(--maroon);
+      z-index: -1;
+    }
+
+    .about-text {
+      padding: 2rem 0;
+    }
+
+    .about-text p {
+      font-size: 1.18rem;
+      line-height: 1.9;
+      color: var(--text-mid);
+      margin-bottom: 1.2rem;
+      font-weight: 400;
+    }
+
+    .about-text p:first-of-type {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--maroon);
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 2.4rem;
+    }
+
+    .pillar {
+      text-align: center;
+      padding: 1.4rem 0.8rem;
+      border: 1px solid var(--cream);
+      background: var(--white);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .pillar:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .pillar-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .pillar h4 {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--maroon-deep);
+    }
+
+    /* ── CLASSES ── */
+    #classes {
+      background: var(--maroon-deep);
+      color: var(--white);
+    }
+
+    #classes .section-label {
+      color: var(--gold-light);
+    }
+
+    #classes .section-title {
+      color: var(--white);
+    }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2px;
+      margin-top: 3.5rem;
+    }
+
+    .class-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+      cursor: default;
+      transition: background 0.4s, border-color 0.4s;
+    }
+
+    .class-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--gold);
+      transition: height 0.4s ease;
+    }
+
+    .class-card:hover {
+      background: rgba(255, 255, 255, 0.07);
+      border-color: rgba(201, 168, 76, 0.4);
+    }
+
+    .class-card:hover::before {
+      height: 100%;
+    }
+
+    .class-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 600;
+      color: rgba(201, 168, 76, 0.18);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .class-card h3 {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .class-card p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .class-tag {
+      display: inline-block;
+      margin-top: 1.2rem;
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      padding: 5px 12px;
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      background: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 260px;
+      gap: 6px;
+      margin-top: 3.5rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-item:nth-child(1) {
+      grid-row: span 2;
+    }
+
+    .gallery-item:nth-child(5) {
+      grid-column: span 2;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease, filter 0.5s;
+      filter: sepia(10%) contrast(1.05);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: sepia(0%) contrast(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(74, 8, 25, 0.7), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.4rem;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay span {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26, 10, 13, 0.95);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 88vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 24px;
+      right: 32px;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: var(--gold);
+      cursor: pointer;
+      letter-spacing: 0.2em;
+      background: none;
+      border: none;
+      transition: color 0.2s;
+    }
+
+    .lightbox-close:hover {
+      color: var(--white);
+    }
+
+    /* ── VIDEO / SOCIAL ── */
+    #media {
+      background: var(--off-white);
+      text-align: center;
+    }
+
+    #media .section-label {
+      justify-content: center;
+    }
+
+    #media .section-title {
+      text-align: center;
+    }
+
+    #media .gold-rule {
+      margin: 1.4rem auto;
+    }
+
+    #media>p {
+      font-size: 1.15rem;
+      color: var(--text-mid);
+      font-style: italic;
+      max-width: 540px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 3.5rem;
+    }
+
+    .youtube-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      overflow: hidden;
+      border: 1px solid rgba(107, 14, 35, 0.15);
+    }
+
+    .youtube-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .social-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .social-card {
+      width: 100%;
+      padding: 2.2rem 1.8rem;
+      border: 1px solid var(--cream);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    .social-card:hover {
+      border-color: var(--maroon);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(107, 14, 35, 0.12);
+    }
+
+    .social-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .social-icon.yt {
+      background: var(--maroon);
+      color: var(--white);
+    }
+
+    .social-icon.ig {
+      background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7);
+      color: var(--white);
+    }
+
+    .social-card h4 {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--maroon-deep);
+    }
+
+    .social-card span {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6%;
+      align-items: start;
+    }
+
+    .contact-info {
+      padding-top: 1rem;
+    }
+
+    .contact-info p {
+      font-size: 1.12rem;
+      line-height: 1.85;
+      color: var(--text-mid);
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-detail-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--maroon-pale);
+      border: 1px solid rgba(107, 14, 35, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-text h4 {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 3px;
+    }
+
+    .contact-detail-text p {
+      font-size: 1rem;
+      color: var(--maroon-deep);
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .contact-form {
+      background: var(--off-white);
+      padding: 3rem 2.5rem;
+      border: 1px solid var(--cream);
+    }
+
+    .form-row {
+      margin-bottom: 1.6rem;
+    }
+
+    .form-row label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--maroon);
+      margin-bottom: 8px;
+    }
+
+    .form-row input,
+    .form-row textarea {
+      width: 100%;
+      background: var(--white);
+      border: 1px solid var(--cream);
+      outline: none;
+      padding: 12px 16px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text-dark);
+      transition: border-color 0.3s;
+      resize: none;
+    }
+
+    .form-row input:focus,
+    .form-row textarea:focus {
+      border-color: var(--maroon);
+    }
+
+    .form-row textarea {
+      height: 130px;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--maroon);
+      color: var(--white);
+      border: none;
+      padding: 14px 0;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .form-submit::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--maroon-light);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+
+    .form-submit:hover::before {
+      transform: scaleX(1);
+    }
+
+    .form-submit span {
+      position: relative;
+      z-index: 1;
+    }
+
+    #form-message {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--maroon);
+      font-style: italic;
+      text-align: center;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--maroon-deep);
+      color: rgba(255, 255, 255, 0.55);
+      text-align: center;
+      padding: 3rem 5%;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+    }
+
+    footer a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--white);
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(201, 168, 76, 0.35);
+      margin: 1.2rem auto;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes scrollPulse {
+      0% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scaleY(0.4);
+        opacity: 0.4;
+      }
+
+      100% {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.4s;
+    }
+
+    .reveal-delay-5 {
+      transition-delay: 0.5s;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .gallery-item:nth-child(5) {
+        grid-column: span 1;
+      }
+
+      .media-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      #about {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image-wrap {
+        aspect-ratio: 16/9;
+      }
+
+      .about-accent {
+        display: none;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+      }
+
+      .gallery-item:nth-child(1) {
+        grid-row: span 1;
+      }
+
+      #contact {
+        grid-template-columns: 1fr;
+      }
+
+      .about-pillars {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 5rem 5%;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 160px;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .classes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        padding: 2rem 1.4rem;
+      }
+
+      .location-link {
+        color: inherit;
+        /* Keeps the text the same color as the rest of the paragraph */
+        text-decoration: none;
+        /* Removes the underline */
+      }
+
+      .location-link:hover {
+        text-decoration: underline;
+        /* Adds underline only when hovered */
+        color: var(--maroon);
+        /* Optional: Change this to your theme's highlight color */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMobile()">Home</a>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#classes" onclick="closeMobile()">Classes</a>
+    <a href="#gallery" onclick="closeMobile()">Gallery</a>
+    <a href="#media" onclick="closeMobile()">Media</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- NAV -->
+  <nav id="mainNav">
+    <a href="#home" class="nav-logo">Sri Vani Kalai Mandram</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#classes">Classes</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-slides">
+      <div class="hero-slide active"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+      <div class="hero-slide"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-ornament">— ॐ —</div>
+      <h1 class="hero-title">Sri Vani<br><span>Kalai Mandram</span></h1>
+      <p class="hero-sub">The Sacred Art of Bharatanatyam</p>
+      <div class="hero-divider"></div>
+      <a href="#about" class="hero-cta">Discover Our Art</a>
+    </div>
+    <div class="hero-dots" id="heroDots"></div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-image-wrap reveal">
+      <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?w=900&q=80"
+        alt="Bharatanatyam dancer in classical pose" loading="lazy" />
+      <div class="about-frame"></div>
+      <div class="about-accent"></div>
+    </div>
+    <div class="about-text">
+      <div class="section-label reveal">Our Heritage</div>
+      <h2 class="section-title reveal reveal-delay-1">Where Tradition<br><em>Meets Devotion</em></h2>
+      <div class="gold-rule reveal reveal-delay-2"></div>
+      <div class="reveal reveal-delay-2">
+        <p>Sri Vani Kalai Mandram is a sanctuary of classical Bharatanatyam — an art form that weaves devotion,
+          expression, and movement into a living prayer.</p>
+        <p>Founded with the vision of preserving India's most ancient dance heritage, we nurture each student's innate
+          grace with rigorous training rooted in the Natya Shastra tradition. From the delicate nritta footwork to the
+          expressive abhinaya storytelling, every lesson is a step deeper into the sacred language of classical dance.
+        </p>
+        <p>Our academy has trained hundreds of students, guiding them from their first salangai steps to solo arangetram
+          performances on grand stages across Tamil Nadu.</p>
+      </div>
+      <div class="about-pillars reveal reveal-delay-3">
+        <div class="pillar">
+          <div class="pillar-icon">🪷</div>
+          <h4>Tradition</h4>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">✨</div>
+          <h4>Expression</h4>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🎶</div>
+          <h4>Devotion</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLASSES -->
+  <section id="classes">
+    <div class="section-label reveal">What We Offer</div>
+    <h2 class="section-title reveal reveal-delay-1">Our <em style="color:var(--gold-light)">Classes</em></h2>
+    <div class="gold-rule reveal reveal-delay-2" style="background:var(--gold);"></div>
+    <div class="classes-grid">
+      <div class="class-card reveal reveal-delay-1">
+        <div class="class-number">01</div>
+        <h3>Beginners</h3>
+        <p>Foundation training in Adavus — the building blocks of Bharatanatyam. Ideal for children aged 5+ and adult
+          newcomers. We focus on body alignment, basic mudras, and rhythmic footwork.</p>
+        <span class="class-tag">Ages 5+</span>
+      </div>
+      <div class="class-card reveal reveal-delay-2">
+        <div class="class-number">02</div>
+        <h3>Intermediate</h3>
+        <p>Deepening vocabulary through Jatiswaram, Varnam, and expressive Abhinaya. Students begin to weave narrative
+          and emotion into their movement sequences.</p>
+        <span class="class-tag">2+ Years Experience</span>
+      </div>
+      <div class="class-card reveal reveal-delay-3">
+        <div class="class-number">03</div>
+        <h3>Advanced</h3>
+        <p>Mastery of full Margam — the traditional concert repertoire. Intensive preparation for Arangetram and
+          competitive performances under the Guru's personal guidance.</p>
+        <span class="class-tag">Guru's Selection</span>
+      </div>
+      <div class="class-card reveal reveal-delay-4">
+        <div class="class-number">04</div>
+        <h3>Arangetram Prep</h3>
+        <p>Dedicated one-on-one coaching for students approaching their grand debut performance — a sacred rite of
+          passage in the Bharatanatyam tradition.</p>
+        <span class="class-tag">By Invitation</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="section-label reveal">Moments Frozen in Time</div>
+    <h2 class="section-title reveal reveal-delay-1">Our <em>Gallery</em></h2>
+    <div class="gold-rule reveal reveal-delay-2"></div>
+    <div class="gallery-grid reveal reveal-delay-2">
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?w=700&q=80" alt="Bharatanatyam pose"
+          loading="lazy" />
+        <div class="gallery-overlay"><span>Classical Pose</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="Dance performance"
+          loading="lazy" />
+        <div class="gallery-overlay"><span>Stage Performance</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=600&q=80" alt="Dance training"
+          loading="lazy" />
+        <div class="gallery-overlay"><span>Training</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1529651737248-dad5e287768e?w=600&q=80" alt="Dance expression"
+          loading="lazy" />
+        <div class="gallery-overlay"><span>Abhinaya</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=800&q=80" alt="Festival dance"
+          loading="lazy" />
+        <div class="gallery-overlay"><span>Festival Show</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1535525153412-5a42439a210d?w=600&q=80" alt="Group performance"
+          loading="lazy" />
+        <div class="gallery-overlay"><span>Group Recital</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1573167243872-43c6433b9d40?w=600&q=80" alt="Arangetram"
+          loading="lazy" />
+        <div class="gallery-overlay"><span>Arangetram</span></div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&q=80" alt="Practice session"
+          loading="lazy" />
+        <div class="gallery-overlay"><span>Practice</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">✕ Close</button>
+    <img id="lightboxImg" src="" alt="Gallery Image" />
+  </div>
+
+  <!-- MEDIA -->
+  <section id="media">
+    <div class="section-label">Connect With Us</div>
+    <h2 class="section-title reveal">Watch &amp; <em>Follow</em></h2>
+    <div class="gold-rule"></div>
+    <p class="reveal">Experience the grace of Bharatanatyam through our performances and reels. Subscribe and follow to
+      stay connected with our dance journey.</p>
+    <div class="media-grid reveal">
+      <div class="youtube-embed">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/BmgwbyLbSLU?si=IxDJ8b_1Ahjt_Wpb"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="social-panel">
+        <a href="https://www.youtube.com/@VIBE_dance.231" target="_blank" rel="noopener" class="social-card">
+          <div class="social-icon yt">▶</div>
+          <h4>YouTube Channel</h4>
+          <span>@VIBE_dance.231</span>
+        </a>
+        <a href="https://www.instagram.com/vibe_dance__academy/" target="_blank" rel="noopener" class="social-card">
+          <div class="social-icon ig">📷</div>
+          <h4>Instagram</h4>
+          <span>@vibe_dance__academy</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-info">
+      <div class="section-label reveal">Get In Touch</div>
+      <h2 class="section-title reveal reveal-delay-1">Begin Your<br><em>Journey</em></h2>
+      <div class="gold-rule reveal reveal-delay-2"></div>
+      <p class="reveal reveal-delay-2">We welcome students of all ages and backgrounds. Reach out to us and take your
+        first step into the divine world of Bharatanatyam.</p>
+      <div class="contact-detail reveal reveal-delay-3">
+        <div class="contact-detail-icon">📞</div>
+        <div class="contact-detail-text">
+          <h4>Phone</h4>
+          <p><a href="tel:9555346697" style="color:var(--maroon-deep);text-decoration:none;">+91 95553 46697</a></p>
+        </div>
+      </div>
+      <div class="contact-detail reveal reveal-delay-4">
+        <div class="contact-detail-icon">📍</div>
+        <div class="contact-detail-text">
+          <h4>Location</h4>
+          <p>
+            <a href="https://maps.app.goo.gl/uiQpCE8tCwLuZr7i9" target="_blank" rel="noopener noreferrer"
+              class="location-link">
+              Tuticorin, Tamil Nadu, India
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="contact-detail reveal reveal-delay-5">
+        <div class="contact-detail-icon">⏰</div>
+        <div class="contact-detail-text">
+          <h4>Class Timings</h4>
+          <p>Monday – Saturday, 5:00 PM – 8:00 PM</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal reveal-delay-2">
+      <div class="section-label" style="margin-bottom:1.5rem;">Send a Message</div>
+      <div class="form-row">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" placeholder="Enter your name" />
+      </div>
+      <div class="form-row">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" />
+      </div>
+      <div class="form-row">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" />
+      </div>
+      <div class="form-row">
+        <label for="message">Message</label>
+        <textarea id="message" placeholder="Tell us about yourself or ask a question…"></textarea>
+      </div>
+      <button class="form-submit" onclick="submitForm()"><span>Send Enquiry</span></button>
+      <p id="form-message"></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Sri Vani Kalai Mandram</div>
+    <div class="footer-divider"></div>
+    <p>
+      The Sacred Art of Bharatanatyam &nbsp;&middot;&nbsp;
+      <a href="https://www.google.com/maps/place/Thoothukudi,+Tamil+Nadu">
+        Tuticorin, Tamil Nadu, India
+      </a>
+    </p>
+    <!-- <p>The Sacred Art of Bharatanatyam &nbsp;·&nbsp; Tuticorin, Tamil Nadu</p> -->
+    <p style="margin-top:0.5rem;">
+      <a href="tel:9555346697">+91 95553 46697</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.instagram.com/vibe_dance__academy/" target="_blank">Instagram</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.youtube.com/@VIBE_dance.231" target="_blank">YouTube</a>
+    </p>
+    <div class="footer-divider"></div>
+    <p style="font-size:0.75rem;">© 2025 Sri Vani Kalai Mandram. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // ── NAV SCROLL ──
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ── HAMBURGER ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobile() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+
+    // ── HERO CAROUSEL ──
+    const slides = document.querySelectorAll('.hero-slide');
+    const dotsContainer = document.getElementById('heroDots');
+    let currentSlide = 0;
+
+    // Build dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function goToSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      document.querySelectorAll('.hero-dot')[currentSlide].classList.remove('active');
+      currentSlide = n;
+      slides[currentSlide].classList.add('active');
+      document.querySelectorAll('.hero-dot')[currentSlide].classList.add('active');
+    }
+
+    setInterval(() => goToSlide((currentSlide + 1) % slides.length), 5000);
+
+    // ── SCROLL REVEAL ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // ── LIGHTBOX ──
+    function openLightbox(item) {
+      const img = item.querySelector('img');
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // ── CONTACT FORM ──
+    async function submitForm() {
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const msg = document.getElementById('form-message');
+
+      if (!name || !email || !message) {
+        msg.style.color = '#c0392b';
+        msg.textContent = 'Please fill in all required fields.';
+        return;
+      }
+
+      const formData = { name, email, phone, message };
+
+      try {
+        msg.textContent = 'Sending message...';
+
+
+         // 1. Send data to your Python API (deploy your Flask app to Render and replace the URL below)
+        const response = await fetch('https://YOUR-RENDER-APP-NAME.onrender.com/send-whatsapp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        // // 2. Send data to your Python API (for local testing)
+        // const response = await fetch('http://127.0.0.1:5000/send-whatsapp', {
+        //   method: 'POST',
+        //   headers: { 'Content-Type': 'application/json' },
+        //   body: JSON.stringify(formData)
+        // });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          msg.style.color = 'green';
+          msg.textContent = 'Success! Message sent via Twilio. ✅';
+
+          // Clear fields
+          document.querySelectorAll('input, textarea').forEach(el => el.value = '');
+        } else {
+          throw new Error(result.message);
+        }
+
+      } catch (error) {
+        msg.style.color = '#c0392b';
+        msg.textContent = 'Error: ' + error.message;
+      }
+    }
+
+    // function submitForm() {
+    //   const name = document.getElementById('name').value.trim();
+    //   const email = document.getElementById('email').value.trim();
+    //   const phone = document.getElementById('phone').value.trim();
+    //   const message = document.getElementById('message').value.trim();
+    //   const msg = document.getElementById('form-message');
+
+    //   if (!name || !email || !message) {
+    //     msg.style.color = '#c0392b';
+    //     msg.textContent = 'Please fill in all required fields.';
+    //     return;
+    //   }
+
+    //   // Format the WhatsApp message
+    //   const whatsappMessage =
+    //     `*New Enquiry*%0A` +
+    //     `*Name:* ${name}%0A` +
+    //     `*Email:* ${email}%0A` +
+    //     `*Phone:* ${phone || 'Not provided'}%0A` +
+    //     `*Message:* ${message}`;
+
+    //   // Your WhatsApp number (with country code, no + or spaces)
+    //   const yourNumber = '916369235701'; // 91 = India code
+
+    //   // Open WhatsApp
+    //   window.open(`https://wa.me/${yourNumber}?text=${whatsappMessage}`, '_blank');
+
+    //   // Show success message
+    //   msg.style.color = 'var(--maroon)';
+    //   msg.textContent = 'Thank you, ' + name + '! Redirecting to WhatsApp... 🙏';
+
+    //   // Clear form
+    //   document.getElementById('name').value = '';
+    //   document.getElementById('email').value = '';
+    //   document.getElementById('phone').value = '';
+    //   document.getElementById('message').value = '';
+    // }
+  </script>
+</body>
+
+</html>
