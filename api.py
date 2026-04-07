@@ -60,7 +60,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)   # Enable CORS
+CORS(app)  # Enable CORS
 
 ACCOUNT_SID = os.getenv('ACCOUNT_SID')
 AUTH_TOKEN = os.getenv('AUTH_TOKEN')
@@ -73,7 +73,6 @@ client = Client(ACCOUNT_SID, AUTH_TOKEN)
 def send_whatsapp():
     try:
         data = request.get_json()
-
         content = (
             f"New Enquiry!\n"
             f"Name: {data.get('name')}\n"
@@ -81,18 +80,17 @@ def send_whatsapp():
             f"Phone: {data.get('phone')}\n"
             f"Message: {data.get('message')}"
         )
-
+        
         message = client.messages.create(
             from_=TWILIO_NUMBER,
             body=content,
             to=MY_NUMBER
         )
-
+        
         return jsonify({"status": "success", "sid": message.sid})
-
+    
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)})
-        
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

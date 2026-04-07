@@ -124,7 +124,7 @@ pypdf==6.6.0
 pypng==0.20220715.0
 pyreadline3==3.4.1
 pyrepl==0.11.4
-python-bidi==0.6.8
+python-bidi==0.6.7
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.0
 pytz==2025.2
