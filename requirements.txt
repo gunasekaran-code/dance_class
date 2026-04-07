@@ -1,8 +1,9 @@
-flask==3.0.3
-flask-cors==4.0.1
-gunicorn==23.0.0
-twilio==9.0.4
+flask
+flask-cors
+twilio
+python-dotenv
 requests
+gunicorn
 
 # aider-install==0.2.0
 # aiohappyeyeballs==2.6.1
