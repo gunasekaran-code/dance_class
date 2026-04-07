@@ -10,9 +10,13 @@ CORS(app)
 load_dotenv()
 
 ACCOUNT_SID = os.getenv('ACCOUNT_SID')
+print(ACCOUNT_SID)
 AUTH_TOKEN = os.getenv('AUTH_TOKEN')
+print(AUTH_TOKEN)
 TWILIO_NUMBER = os.getenv('TWILIO_NUMBER')
+print(TWILIO_NUMBER)
 MY_NUMBER = os.getenv('MY_NUMBER')
+print(MY_NUMBER)
 
 
 client = Client(ACCOUNT_SID, AUTH_TOKEN)
