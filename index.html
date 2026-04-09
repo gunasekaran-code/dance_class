@@ -1583,14 +1583,14 @@
         msg.textContent = 'Sending message...';
 
 
-         // 1. Send data to your Python API (deploy your Flask app to Render and replace the URL below)
+        // 1. Send data to your Python API (deploy your Flask app to Render and replace the URL below)
         const response = await fetch('https://dance-class-api.onrender.com/send-whatsapp', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
         });
 
-        // // 2. Send data to your Python API (for local testing)
+        // 2. Send data to your Python API (for local testing)
         // const response = await fetch('http://127.0.0.1:5000/send-whatsapp', {
         //   method: 'POST',
         //   headers: { 'Content-Type': 'application/json' },
@@ -1600,8 +1600,8 @@
         const result = await response.json();
 
         if (response.ok) {
-          msg.style.color = 'green';
-          msg.textContent = 'Success! Message sent via Twilio. ✅';
+          // msg.style.color = 'green';
+          msg.textContent = 'Message sent successfully. Thank you, ' + name + '!';
 
           // Clear fields
           document.querySelectorAll('input, textarea').forEach(el => el.value = '');
