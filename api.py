@@ -14,7 +14,7 @@ ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "http://localhost:3000",
     # "https://your-username.github.io",   # ← uncomment & replace with your GitHub Pages URL
-    # "https://your-site.netlify.app",     # ← uncomment & replace with your Netlify URL
+    "https://sri-vani-kalai-manadram.netlify.app"     
     # "https://your-site.vercel.app",      # ← uncomment & replace with your Vercel URL
 ]
 
