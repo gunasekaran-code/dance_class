@@ -21,7 +21,7 @@ ALLOWED_ORIGINS = [
 CORS(app, resources={
     r"/send-whatsapp": {
         "origins": ALLOWED_ORIGINS,
-        "methods": ["POST", "OPTIONS"],
+        "methods": ["GET", "HEAD", "POST", "OPTIONS"], 
         "allow_headers": ["Content-Type"]
     }
 })
