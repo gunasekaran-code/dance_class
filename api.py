@@ -83,12 +83,14 @@ def send_whatsapp():
         }), 400
 
     content = (
-        f"💃 New Dance Class Enquiry!\n\n"
-        f"Name:    {data.get('name', 'N/A')}\n"
-        f"Email:   {data.get('email', 'N/A')}\n"
-        f"Phone:   {data.get('phone', 'N/A') or 'Not provided'}\n"
-        f"Message: {data.get('message', 'N/A')}"
-    )
+    f"💃 *New Dance Class Enquiry!*\n"
+    f"━━━━━━━━━━━━━━━━━━━━\n"
+    f"*👤 Name:* {data.get('name', 'N/A')}\n"
+    f"*📧 Email:* {data.get('email', 'N/A')}\n"
+    f"*📞 Phone:* {data.get('phone', 'N/A') or 'Not provided'}\n"
+    f"*💬 Message:*\n"
+    f"_{data.get('message', 'N/A')}_"
+)
 
     try:
         message = client.messages.create(

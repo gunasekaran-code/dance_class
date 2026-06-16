@@ -1810,7 +1810,8 @@
         </div>
         <div class="form-row">
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" />
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" maxlength="10"
+            oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)" />
         </div>
         <div class="form-row">
           <label for="message">Message</label>
